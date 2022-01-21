@@ -1,0 +1,51 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:pocbindingdmo.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:views="clr-namespace:pocbindingdmo.Views"
+        xmlns:objectModel="clr-namespace:System.Collections.ObjectModel;assembly=System.ObjectModel"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="pocbindingdmo.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="pocbindingdmo">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel/>
+    </Design.DataContext>
+    <StackPanel>
+
+		<Button Content="Add item in List 1" Command="{Binding AddObject1}"/>
+        <Button Content="Add item in List 2" Command="{Binding AddObject2}"/>
+        <Button Content="Add item in List 3" Command="{Binding AddObject3}"/>
+
+        <Button Content="Delete item from List 1" Command="{Binding DeleteObject1}"/>
+        <Button Content="Delete Item from List 2" Command="{Binding DeleteObject2}"/>
+        <Button Content="Delete Item from List 3" Command="{Binding DeleteObject3}"/>
+
+        <Button Content="Delete List 3" Command="{Binding DeleteObject3List}"/>
+        <Button Content="Create a List 3" Command="{Binding CreateObject3List}"/>
+        <Button Content="Delete List 3, and create new one" Command="{Binding DeleteObjectClear}"/>
+
+        <ItemsControl x:Name="ItemsControl_test" Items="{Binding TestBindTypes}" >
+            <ItemsControl.DataTemplates>
+                <DataTemplate DataType="{x:Type  vm:Object1}">
+                    <Grid>
+                        <TextBox Text="{Binding StrObject1}"/>
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:Object2}">
+                    <Grid>
+                        <TextBox Text="{Binding StrObject2}"/>
+                    </Grid>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vm:Object3}">
+                    <Grid>
+                        <TextBox Text="{Binding StrObject3}"/>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.DataTemplates>
+        </ItemsControl>
+        
+    </StackPanel>
+</Window>
