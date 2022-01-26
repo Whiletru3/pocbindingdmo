@@ -23,11 +23,12 @@
         <Button Content="Delete Item from List 2" Command="{Binding DeleteObject2}"/>
         <Button Content="Delete Item from List 3" Command="{Binding DeleteObject3}"/>
 
-        <Button Content="Delete List 3" Command="{Binding DeleteObject3List}"/>
         <Button Content="Create a List 3" Command="{Binding CreateObject3List}"/>
-        <Button Content="Delete List 3, and create new one" Command="{Binding DeleteObjectClear}"/>
+        <Button Content="Delete List 3" Command="{Binding DeleteObject3List}"/>
 
-        <ItemsControl x:Name="ItemsControl_test" Items="{Binding TestBindTypes}" >
+
+
+		<ItemsControl x:Name="ItemsControl_test" Items="{Binding AggregatedCollection}" >
             <ItemsControl.DataTemplates>
                 <DataTemplate DataType="{x:Type  vm:Object1}">
                     <Grid>
